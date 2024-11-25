@@ -1,5 +1,5 @@
 package config
 
 type Postgres struct {
-	ConnectionString string `yaml:"conn"`
+	ConnectionString string `yaml:"connectionString"`
 }

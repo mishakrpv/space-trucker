@@ -3,10 +3,16 @@ package main
 import (
 	"context"
 	stdlog "log"
+	"net"
+	"net/http"
 	"os"
+	"os/signal"
+	"syscall"
 
+	"github.com/rs/zerolog/log"
 	"github.com/space-trucker/iam/cmd"
 	"github.com/space-trucker/iam/pkg/config"
+	"github.com/space-trucker/iam/pkg/logs"
 	"github.com/space-trucker/iam/pkg/server"
 )
 
@@ -23,20 +29,33 @@ func run(
 ) error {
 	zConfig := cmd.NewZzIamCmdConfiguration()
 
-	setupLogger(ctx, zConfig.Log)
+	logs.SetupLogger(zConfig.Log)
 
-	_, err := setupServer(ctx, &zConfig.Cfg)
+	srv, err := setupServer(ctx, &zConfig.Cfg)
 	if err != nil {
 		return err
 	}
 
+	ctx, _ = signal.NotifyContext(ctx, syscall.SIGINT, syscall.SIGTERM)
+
+	srv.Start(ctx)
+	defer srv.Close()
+
+	srv.Wait()
+	log.Info().Msg("Shutting down")
 	return nil
 }
 
-func setupLogger(ctx context.Context, cfg *config.Log) {
-
-}
-
 func setupServer(ctx context.Context, cfg *config.Cfg) (*server.Server, error) {
-	return server.New(), nil
+	tlsConfig, err := cfg.ClientTLS.CreateTLSConfig(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	httpServer := &http.Server{
+		Addr:      net.JoinHostPort(cfg.Host, cfg.Port),
+		TLSConfig: tlsConfig,
+	}
+
+	return server.NewServer(httpServer), nil
 }

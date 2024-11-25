@@ -17,8 +17,8 @@ CREATE TABLE IF NOT EXISTS user (
 )
 `
 
-func Open(ctx context.Context, cfg config.Postgres) (*sqlx.DB, error) {
-	db, err := sqlx.Connect("postgres", cfg.ConnectionString)
+func Open(ctx context.Context, postgresCfg config.Postgres) (*sqlx.DB, error) {
+	db, err := sqlx.Connect("postgres", postgresCfg.ConnectionString)
 	if err != nil {
 		log.Error().Err(err)
 		return nil, err
