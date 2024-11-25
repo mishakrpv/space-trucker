@@ -6,15 +6,13 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/jmoiron/sqlx"
 	"github.com/rs/zerolog/log"
 )
 
 type Server struct {
 	stopChan chan bool
 
-	OpenDBConnection func() (*sqlx.DB, error)
-	HTTPServer       *http.Server
+	HTTPServer *http.Server
 }
 
 // NewServer returns an initialized Server.

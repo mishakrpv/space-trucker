@@ -11,6 +11,7 @@ import (
 
 	"github.com/rs/zerolog/log"
 	"github.com/space-trucker/iam/cmd"
+	"github.com/space-trucker/iam/pkg/api"
 	"github.com/space-trucker/iam/pkg/config"
 	"github.com/space-trucker/iam/pkg/logs"
 	"github.com/space-trucker/iam/pkg/server"
@@ -52,9 +53,12 @@ func setupServer(ctx context.Context, cfg *config.Cfg) (*server.Server, error) {
 		return nil, err
 	}
 
+	services := api.NewServices(cfg)
+
 	httpServer := &http.Server{
 		Addr:      net.JoinHostPort(cfg.Host, cfg.Port),
 		TLSConfig: tlsConfig,
+		Handler:   api.NewHTTPHandler(services),
 	}
 
 	return server.NewServer(httpServer), nil
