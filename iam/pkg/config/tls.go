@@ -11,9 +11,9 @@ import (
 	"github.com/rs/zerolog/log"
 )
 
-// ClientTLS holds TLS specific configurations as client
+// TLS holds TLS specific configurations as client
 // CA, Cert and Key can be either path or file contents.
-type ClientTLS struct {
+type TLS struct {
 	CA                 string `description:"TLS CA" json:"ca,omitempty" toml:"ca,omitempty" yaml:"ca,omitempty"`
 	Cert               string `description:"TLS cert" json:"cert,omitempty" toml:"cert,omitempty" yaml:"cert,omitempty"`
 	Key                string `description:"TLS key" json:"key,omitempty" toml:"key,omitempty" yaml:"key,omitempty" loggable:"false"`
@@ -21,9 +21,9 @@ type ClientTLS struct {
 }
 
 // CreateTLSConfig creates a TLS config from ClientTLS structures.
-func (c *ClientTLS) CreateTLSConfig(ctx context.Context) (*tls.Config, error) {
+func (c *TLS) CreateTLSConfig(ctx context.Context) (*tls.Config, error) {
 	if c == nil {
-		log.Ctx(ctx).Warn().Msg("clientTLS is nil")
+		log.Ctx(ctx).Warn().Msg("TLS is nil")
 		return nil, nil
 	}
 

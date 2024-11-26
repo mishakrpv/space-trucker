@@ -13,7 +13,7 @@ type ConnectionFactory interface {
 }
 
 type connectionFactory struct {
-	redisOptions *config.Redis
+	redisCfg *config.Redis
 }
 
 func NewConnectionFactory() ConnectionFactory {
@@ -21,7 +21,7 @@ func NewConnectionFactory() ConnectionFactory {
 }
 
 func (f *connectionFactory) Create(ctx context.Context) *redis.Client {
-	rdb := redis.NewClient(&f.redisOptions.Options)
+	rdb := redis.NewClient(f.redisCfg.CreateRedisOptions())
 
 	go func(ctx context.Context) {
 		<-ctx.Done()

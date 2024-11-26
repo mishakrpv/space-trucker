@@ -4,8 +4,8 @@ type Cfg struct {
 	Host string `yaml:"host"`
 	Port string `yaml:"port"`
 
-	Log       *Log       `yaml:"log"`
-	Postgres  *Postgres  `yaml:"postgres"`
-	Redis     *Redis     `yaml:"redis"`
-	ClientTLS *ClientTLS `yaml:"clientTLS"`
+	Log      *Log      `yaml:"log"`
+	Postgres *Postgres `yaml:"postgres"`
+	Redis    *Redis    `yaml:"redis"`
+	TLS      *TLS      `yaml:"tls"`
 }

@@ -32,12 +32,12 @@ func run(
 
 	logs.SetupLogger(zConfig.Log)
 
+	ctx, _ = signal.NotifyContext(ctx, syscall.SIGINT, syscall.SIGTERM)
+
 	srv, err := setupServer(ctx, &zConfig.Cfg)
 	if err != nil {
 		return err
 	}
-
-	ctx, _ = signal.NotifyContext(ctx, syscall.SIGINT, syscall.SIGTERM)
 
 	srv.Start(ctx)
 	defer srv.Close()
@@ -48,7 +48,7 @@ func run(
 }
 
 func setupServer(ctx context.Context, cfg *config.Cfg) (*server.Server, error) {
-	tlsConfig, err := cfg.ClientTLS.CreateTLSConfig(ctx)
+	tlsConfig, err := cfg.TLS.CreateTLSConfig(ctx)
 	if err != nil {
 		return nil, err
 	}
