@@ -17,5 +17,12 @@
 }
 
 .home__signin {
+  padding: 1em;
   width: 50%;
+}
+
+@media only screen and (max-width: 1015px) {
+  .home__content {
+    flex-direction: column;
+  }
 }
