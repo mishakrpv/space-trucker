@@ -1,0 +1,7 @@
+:root {
+  --color-page: #000;
+}
+
+html {
+  background: var(--color-page);
+}
