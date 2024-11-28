@@ -1,0 +1,21 @@
+.home-page {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.home__content {
+  display: flex;
+  width: 100%;
+}
+
+.home__logo {
+  display: flex;
+  justify-content: center;
+  padding: 32px;
+  width: 50%;
+}
+
+.home__signin {
+  width: 50%;
+}
