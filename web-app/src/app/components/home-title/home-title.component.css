@@ -1,0 +1,14 @@
+.title {
+  user-select: none;
+  color: var(--color-text-bright);
+}
+
+.title--primary {
+  font-size: 64px;
+  margin: 48px 0;
+}
+
+.title--secondary {
+  font-size: 31px;
+  margin-bottom: 32px;
+}

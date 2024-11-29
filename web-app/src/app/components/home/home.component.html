@@ -1,10 +1,22 @@
 <div class="home-page">
   <div class="home__content">
     <div class="home__logo">
-      <img src="https://placehold.co/350x300" />
+      <img
+        src="https://placehold.co/350x300"
+        draggable="false"
+        class="logo-image"
+        alt="Logo"
+      />
     </div>
     <div class="home__signin">
       <router-outlet></router-outlet>
     </div>
   </div>
 </div>
+<footer class="home-footer">
+  <nav class="footer__nav">
+    @for (link of footerNavLinks; track link) {
+    <a [href]="link.link" class="footer__nav-link">{{ link.text }}</a>
+    }
+  </nav>
+</footer>

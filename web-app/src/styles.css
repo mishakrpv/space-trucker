@@ -8,8 +8,14 @@
 }
 
 :root {
+  --color-border-dark: #2f3336;
+  --color-button-background-bright: #fff;
   --color-page: #000;
+  --color-primary-blue: #1d9bf0;
+  --color-text-dark-blue: #0f1419;
+  --color-text-bright: #fff;
   --color-text-dark: #1a1a19;
+  --color-text-dark-alt: #71767b;
 }
 
 @font-face {
@@ -25,7 +31,7 @@
 html,
 body {
   height: 100%;
-  font-family: var(--font-family-sans);
+  font-family: var(--font-family-serif);
   background: var(--color-page);
 }
 
@@ -35,4 +41,14 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+input:focus-visible {
+  outline-width: 0;
 }

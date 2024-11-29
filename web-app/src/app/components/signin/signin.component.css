@@ -1,0 +1,108 @@
+.signin-options {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: 20px;
+  user-select: none;
+  margin-bottom: 8px;
+  transition: 0.2s;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.provider-button {
+  border-color: #333639;
+  background: var(--color-button-background-bright);
+}
+
+.provider-button:hover {
+  background: #e6e6e6;
+}
+
+.provider-button:active {
+  background: #cccccc;
+}
+
+.provider-button__inner {
+  display: flex;
+  color: var(--color-text-dark-blue);
+}
+
+.button__icon {
+  margin-right: 4px;
+  width: 20px;
+  height: 20px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 4px -4px;
+}
+
+.divider-line {
+  width: 100%;
+  height: 1px;
+  margin: 0 4px;
+  background: var(--color-border-dark);
+}
+
+.divider-or {
+  user-select: none;
+  margin: 0 4px;
+  font-size: 15px;
+  color: #e7e9ea;
+}
+
+.create-account-button {
+  color: #fff;
+  border-color: rgba(0, 0, 0, 0);
+  background: var(--color-primary-blue);
+  margin-top: 8px;
+}
+
+.create-account-button:hover {
+  background: #1a8cd8;
+}
+
+.legal-notice {
+  margin-bottom: 20px;
+  font-size: 11px;
+  color: var(--color-text-dark-alt);
+}
+
+.link-blue {
+  color: var(--color-primary-blue);
+  text-decoration: none;
+}
+
+.link-blue:hover {
+  text-decoration: underline;
+}
+
+.signin__title {
+  user-select: none;
+  font-size: 17px;
+  color: #fff;
+  margin: 40px 0 16px 0;
+}
+
+.signin-button {
+  border: 1px solid #536471;
+  background: transparent;
+}
+
+.signin-button:hover {
+  background: #1d9bf01a;
+}
+
+.signin-button__inner {
+  color: var(--color-primary-blue);
+}
