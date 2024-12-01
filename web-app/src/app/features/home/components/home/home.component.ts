@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { IamService } from '../../services/iam/iam.service';
+import { IamService } from '../../../../services/iam/iam.service';
 import { RouterOutlet } from '@angular/router';
 
 interface FooterNavLink {

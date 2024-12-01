@@ -66,6 +66,7 @@
   border-color: rgba(0, 0, 0, 0);
   background: var(--color-primary-blue);
   margin-top: 8px;
+  text-decoration: none;
 }
 
 .create-account-button:hover {

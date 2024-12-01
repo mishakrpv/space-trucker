@@ -54,16 +54,17 @@
 @media only screen and (max-width: 1015px) {
   .home__content {
     flex-direction: column;
+    height: 100%;
   }
 
   .home__logo {
     padding-left: 1em;
     justify-content: flex-start;
-    margin: auto;
+    margin: 0 auto;
   }
 
   .home__signin {
-    margin: auto;
+    margin: 0 auto;
   }
 
   .logo-image {

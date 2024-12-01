@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { SigninComponent } from './components/signin/signin.component';
-import { SignupComponent } from './components/signup/signup.component';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { HomeComponent } from './features/home/components/home/home.component';
+import { SigninOptionsComponent } from './features/home/components/signin-options/signin-options.component';
+import { PageNotFoundComponent } from './features/page-not-found/components/page-not-found/page-not-found.component';
+import { SignupComponent } from './features/home/components/signup/signup.component';
 
 const formatTitle = (title: string) => `${title} — Space Trucker`;
 
@@ -10,17 +10,15 @@ export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: formatTitle('Welcome'),
+    title: formatTitle('The secure way'),
     children: [
       {
         path: '',
-        component: SigninComponent,
-        title: formatTitle('The secure way'),
+        component: SigninOptionsComponent,
       },
       {
         path: 'signup',
         component: SignupComponent,
-        title: formatTitle('Sign up'),
       },
     ],
   },
