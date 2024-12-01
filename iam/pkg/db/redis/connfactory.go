@@ -16,8 +16,10 @@ type connectionFactory struct {
 	redisCfg *config.Redis
 }
 
-func NewConnectionFactory() ConnectionFactory {
-	return &connectionFactory{}
+func NewConnectionFactory(redisCfg *config.Redis) ConnectionFactory {
+	return &connectionFactory{
+		redisCfg: redisCfg,
+	}
 }
 
 func (f *connectionFactory) Create(ctx context.Context) *redis.Client {
