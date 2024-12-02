@@ -33,7 +33,9 @@ func (s *Server) Start(ctx context.Context) {
 		s.Stop()
 	}()
 
-	if err := s.HTTPServer.ListenAndServeTLS("", ""); err != nil {
+	log.Info().Msgf("Server is listening on: %s", s.HTTPServer.Addr)
+
+	if err := s.HTTPServer.ListenAndServe(); !errors.Is(err, http.ErrServerClosed) {
 		log.Error().Err(err).Msg("Something's wrong, I can feel it")
 	}
 }

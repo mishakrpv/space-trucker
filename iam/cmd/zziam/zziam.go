@@ -47,18 +47,14 @@ func run(
 	return nil
 }
 
-func setupServer(ctx context.Context, cfg *config.Cfg) (*server.Server, error) {
-	tlsConfig, err := cfg.TLS.CreateTLSConfig(ctx)
-	if err != nil {
-		return nil, err
-	}
-
+func setupServer(_ context.Context, cfg *config.Cfg) (*server.Server, error) {
 	services := api.NewServices(cfg)
 
+	addr := net.JoinHostPort(cfg.Host, cfg.Port)
+
 	httpServer := &http.Server{
-		Addr:      net.JoinHostPort(cfg.Host, cfg.Port),
-		TLSConfig: tlsConfig,
-		Handler:   api.NewHTTPHandler(services),
+		Addr:    addr,
+		Handler: api.NewHTTPHandler(services),
 	}
 
 	return server.NewServer(httpServer), nil

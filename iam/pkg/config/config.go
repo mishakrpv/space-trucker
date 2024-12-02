@@ -7,5 +7,4 @@ type Cfg struct {
 	Log      *Log      `yaml:"log"`
 	Postgres *Postgres `yaml:"postgres"`
 	Redis    *Redis    `yaml:"redis"`
-	TLS      *TLS      `yaml:"tls"`
 }
