@@ -9,5 +9,13 @@ type ZzIamCmdConfiguration struct {
 }
 
 func NewZzIamCmdConfiguration() *ZzIamCmdConfiguration {
-	return &ZzIamCmdConfiguration{}
+	return &ZzIamCmdConfiguration{
+		Cfg: pconfig.Cfg{
+			Host: "localhost",
+			Port: "8080",
+			Log: &pconfig.Log{
+				Level: "INFO",
+			},
+		},
+	}
 }
