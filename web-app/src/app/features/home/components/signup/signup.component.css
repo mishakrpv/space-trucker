@@ -1,5 +1,12 @@
 .signin {
+  width: 300px;
+}
+
+.signin__form {
   display: flex;
   flex-direction: column;
-  width: 300px;
+}
+
+.create-button {
+  border: none;
 }

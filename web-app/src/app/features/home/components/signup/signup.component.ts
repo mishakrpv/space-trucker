@@ -6,7 +6,7 @@ import { TitleComponent } from '../title/title.component';
   selector: 'app-signup',
   imports: [ReactiveFormsModule, TitleComponent],
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.css',
+  styleUrls: ['./signup.component.css', '../signin-options/signin-options.component.css'],
 })
 export class SignupComponent {
   form = new FormGroup({

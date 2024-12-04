@@ -21,6 +21,8 @@
 }
 
 .home__signin {
+  display: flex;
+  justify-content: center;
   padding: 1em;
   width: 50%;
 }
@@ -60,6 +62,7 @@
   .home__logo {
     padding-left: 1em;
     justify-content: flex-start;
+    min-width: 332px;
     margin: 0 auto;
   }
 

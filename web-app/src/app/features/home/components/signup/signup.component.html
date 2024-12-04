@@ -1,6 +1,6 @@
 <home-title primary="The secure way" secondary="Join today."></home-title>
 <div class="signin">
-  <form [formGroup]="form" (submit)="submitForm()">
+  <form [formGroup]="form" (submit)="submitForm()" class="signin__form">
     <label for="inputEmail">Email</label>
     <input id="inputEmail" type="text" formControlName="email" />
 
@@ -14,6 +14,6 @@
       formControlName="confirmPassword"
     />
 
-    <button type="submit">Continue</button>
+    <button class="create-button button" type="submit">Continue</button>
   </form>
 </div>
